@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C983B02325FC90C200162BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B02225FC90C200162BF1 /* AppDelegate.swift */; };
-		C983B02725FC90C200162BF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B02625FC90C200162BF1 /* ViewController.swift */; };
+		C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B02625FC90C200162BF1 /* UsersListViewController.swift */; };
 		C983B02A25FC90C200162BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C983B02825FC90C200162BF1 /* Main.storyboard */; };
 		C983B02C25FC90C300162BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C983B02B25FC90C300162BF1 /* Assets.xcassets */; };
 		C983B02F25FC90C300162BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C983B02D25FC90C300162BF1 /* LaunchScreen.storyboard */; };
+		C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B04E25FCCAA900162BF1 /* CredentialsListViewController.swift */; };
+		C983B05425FCCC2B00162BF1 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B05325FCCC2B00162BF1 /* UserTableViewCell.swift */; };
+		C983B05725FCCC3D00162BF1 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C983B05625FCCC3D00162BF1 /* UserTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C983B01F25FC90C200162BF1 /* Credis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Credis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C983B02225FC90C200162BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C983B02625FC90C200162BF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C983B02625FC90C200162BF1 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		C983B02925FC90C200162BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C983B02B25FC90C300162BF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C983B02E25FC90C300162BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C983B03025FC90C300162BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C983B04E25FCCAA900162BF1 /* CredentialsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListViewController.swift; sourceTree = "<group>"; };
+		C983B05325FCCC2B00162BF1 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		C983B05625FCCC3D00162BF1 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 		C983B03925FC925F00162BF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C983B05125FCCC0900162BF1 /* UserTableViewCell */,
 				C983B03A25FC927600162BF1 /* Storyboard */,
 			);
 			path = View;
@@ -89,7 +96,8 @@
 		C983B03B25FC929500162BF1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C983B02625FC90C200162BF1 /* ViewController.swift */,
+				C983B02625FC90C200162BF1 /* UsersListViewController.swift */,
+				C983B04E25FCCAA900162BF1 /* CredentialsListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -102,6 +110,15 @@
 				C983B02B25FC90C300162BF1 /* Assets.xcassets */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		C983B05125FCCC0900162BF1 /* UserTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C983B05325FCCC2B00162BF1 /* UserTableViewCell.swift */,
+				C983B05625FCCC3D00162BF1 /* UserTableViewCell.xib */,
+			);
+			path = UserTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C983B05725FCCC3D00162BF1 /* UserTableViewCell.xib in Resources */,
 				C983B02F25FC90C300162BF1 /* LaunchScreen.storyboard in Resources */,
 				C983B02C25FC90C300162BF1 /* Assets.xcassets in Resources */,
 				C983B02A25FC90C200162BF1 /* Main.storyboard in Resources */,
@@ -174,7 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C983B02725FC90C200162BF1 /* ViewController.swift in Sources */,
+				C983B05425FCCC2B00162BF1 /* UserTableViewCell.swift in Sources */,
+				C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */,
+				C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */,
 				C983B02325FC90C200162BF1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
