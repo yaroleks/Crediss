@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C983B01F25FC90C200162BF1 /* CredentialsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CredentialsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C983B01F25FC90C200162BF1 /* Credis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Credis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C983B02225FC90C200162BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C983B02625FC90C200162BF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C983B02925FC90C200162BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		C983B01625FC90C200162BF1 = {
 			isa = PBXGroup;
 			children = (
-				C983B02125FC90C200162BF1 /* CredentialsApp */,
+				C983B02125FC90C200162BF1 /* Credis */,
 				C983B02025FC90C200162BF1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,30 +46,70 @@
 		C983B02025FC90C200162BF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C983B01F25FC90C200162BF1 /* CredentialsApp.app */,
+				C983B01F25FC90C200162BF1 /* Credis.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C983B02125FC90C200162BF1 /* CredentialsApp */ = {
+		C983B02125FC90C200162BF1 /* Credis */ = {
+			isa = PBXGroup;
+			children = (
+				C983B03825FC925700162BF1 /* Model */,
+				C983B03925FC925F00162BF1 /* View */,
+				C983B03B25FC929500162BF1 /* Controller */,
+				C983B03C25FC92AF00162BF1 /* Application */,
+			);
+			path = Credis;
+			sourceTree = "<group>";
+		};
+		C983B03825FC925700162BF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C983B03925FC925F00162BF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C983B03A25FC927600162BF1 /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C983B03A25FC927600162BF1 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C983B02825FC90C200162BF1 /* Main.storyboard */,
+				C983B02D25FC90C300162BF1 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C983B03B25FC929500162BF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C983B02625FC90C200162BF1 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C983B03C25FC92AF00162BF1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				C983B02225FC90C200162BF1 /* AppDelegate.swift */,
-				C983B02625FC90C200162BF1 /* ViewController.swift */,
-				C983B02825FC90C200162BF1 /* Main.storyboard */,
-				C983B02B25FC90C300162BF1 /* Assets.xcassets */,
-				C983B02D25FC90C300162BF1 /* LaunchScreen.storyboard */,
 				C983B03025FC90C300162BF1 /* Info.plist */,
+				C983B02B25FC90C300162BF1 /* Assets.xcassets */,
 			);
-			path = CredentialsApp;
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C983B01E25FC90C200162BF1 /* CredentialsApp */ = {
+		C983B01E25FC90C200162BF1 /* Credis */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C983B03325FC90C300162BF1 /* Build configuration list for PBXNativeTarget "CredentialsApp" */;
+			buildConfigurationList = C983B03325FC90C300162BF1 /* Build configuration list for PBXNativeTarget "Credis" */;
 			buildPhases = (
 				C983B01B25FC90C200162BF1 /* Sources */,
 				C983B01C25FC90C200162BF1 /* Frameworks */,
@@ -79,9 +119,9 @@
 			);
 			dependencies = (
 			);
-			name = CredentialsApp;
+			name = Credis;
 			productName = CredentialsApp;
-			productReference = C983B01F25FC90C200162BF1 /* CredentialsApp.app */;
+			productReference = C983B01F25FC90C200162BF1 /* Credis.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +138,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C983B01A25FC90C200162BF1 /* Build configuration list for PBXProject "CredentialsApp" */;
+			buildConfigurationList = C983B01A25FC90C200162BF1 /* Build configuration list for PBXProject "Credis" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,7 +151,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C983B01E25FC90C200162BF1 /* CredentialsApp */,
+				C983B01E25FC90C200162BF1 /* Credis */,
 			);
 		};
 /* End PBXProject section */
@@ -284,12 +324,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YP4BYLNY9A;
-				INFOPLIST_FILE = CredentialsApp/Info.plist;
+				INFOPLIST_FILE = Credis/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yaro.CredentialsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yaro.Credis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -303,12 +343,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YP4BYLNY9A;
-				INFOPLIST_FILE = CredentialsApp/Info.plist;
+				INFOPLIST_FILE = Credis/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yaro.CredentialsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yaro.Credis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -318,7 +358,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C983B01A25FC90C200162BF1 /* Build configuration list for PBXProject "CredentialsApp" */ = {
+		C983B01A25FC90C200162BF1 /* Build configuration list for PBXProject "Credis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C983B03125FC90C300162BF1 /* Debug */,
@@ -327,7 +367,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C983B03325FC90C300162BF1 /* Build configuration list for PBXNativeTarget "CredentialsApp" */ = {
+		C983B03325FC90C300162BF1 /* Build configuration list for PBXNativeTarget "Credis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C983B03425FC90C300162BF1 /* Debug */,

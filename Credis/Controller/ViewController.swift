@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  CredentialsApp
+//  Credis
 //
-//  Created by To delete on 3/13/21.
+//  Created by Yaro on 3/13/21.
 //
 
 import UIKit
