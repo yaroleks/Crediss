@@ -14,13 +14,6 @@ final class UsersListViewController: UIViewController {
     var uuid = [String]()
     
     // MARK: ViewController Lifecycle
-    fileprivate func setupUI() {
-        tableView.register(
-            UINib(nibName: String(describing: UserTableViewCell.self), bundle: nil),
-            forCellReuseIdentifier: String(describing: UserTableViewCell.self)
-        )
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -30,6 +23,14 @@ final class UsersListViewController: UIViewController {
     @IBAction func addPressed(_ sender: Any) {
         uuid.append(UUID().uuidString)
         tableView.reloadData()
+    }
+    
+    // MARK: Private methods
+    private func setupUI() {
+        tableView.register(
+            UINib(nibName: String(describing: UserTableViewCell.self), bundle: nil),
+            forCellReuseIdentifier: String(describing: UserTableViewCell.self)
+        )
     }
 }
 
