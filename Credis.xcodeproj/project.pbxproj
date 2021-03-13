@@ -15,6 +15,10 @@
 		C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B04E25FCCAA900162BF1 /* CredentialsListViewController.swift */; };
 		C983B05425FCCC2B00162BF1 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B05325FCCC2B00162BF1 /* UserTableViewCell.swift */; };
 		C983B05725FCCC3D00162BF1 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C983B05625FCCC3D00162BF1 /* UserTableViewCell.xib */; };
+		C983B05A25FCDD2300162BF1 /* SingleCredentialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B05925FCDD2300162BF1 /* SingleCredentialViewController.swift */; };
+		C983B05E25FCF2C200162BF1 /* CredentialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B05D25FCF2C200162BF1 /* CredentialTableViewCell.swift */; };
+		C983B06125FCF2D000162BF1 /* CredentialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C983B06025FCF2D000162BF1 /* CredentialTableViewCell.xib */; };
+		C983B06425FCFB1F00162BF1 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B06325FCFB1F00162BF1 /* Credential.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		C983B04E25FCCAA900162BF1 /* CredentialsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsListViewController.swift; sourceTree = "<group>"; };
 		C983B05325FCCC2B00162BF1 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		C983B05625FCCC3D00162BF1 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		C983B05925FCDD2300162BF1 /* SingleCredentialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCredentialViewController.swift; sourceTree = "<group>"; };
+		C983B05D25FCF2C200162BF1 /* CredentialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTableViewCell.swift; sourceTree = "<group>"; };
+		C983B06025FCF2D000162BF1 /* CredentialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredentialTableViewCell.xib; sourceTree = "<group>"; };
+		C983B06325FCFB1F00162BF1 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,7 @@
 		C983B03825FC925700162BF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C983B06325FCFB1F00162BF1 /* Credential.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,6 +87,7 @@
 		C983B03925FC925F00162BF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C983B05C25FCF2A600162BF1 /* CredentialTableViewCell */,
 				C983B05125FCCC0900162BF1 /* UserTableViewCell */,
 				C983B03A25FC927600162BF1 /* Storyboard */,
 			);
@@ -98,6 +108,7 @@
 			children = (
 				C983B02625FC90C200162BF1 /* UsersListViewController.swift */,
 				C983B04E25FCCAA900162BF1 /* CredentialsListViewController.swift */,
+				C983B05925FCDD2300162BF1 /* SingleCredentialViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -119,6 +130,15 @@
 				C983B05625FCCC3D00162BF1 /* UserTableViewCell.xib */,
 			);
 			path = UserTableViewCell;
+			sourceTree = "<group>";
+		};
+		C983B05C25FCF2A600162BF1 /* CredentialTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C983B05D25FCF2C200162BF1 /* CredentialTableViewCell.swift */,
+				C983B06025FCF2D000162BF1 /* CredentialTableViewCell.xib */,
+			);
+			path = CredentialTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +202,7 @@
 				C983B02F25FC90C300162BF1 /* LaunchScreen.storyboard in Resources */,
 				C983B02C25FC90C300162BF1 /* Assets.xcassets in Resources */,
 				C983B02A25FC90C200162BF1 /* Main.storyboard in Resources */,
+				C983B06125FCF2D000162BF1 /* CredentialTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,9 +214,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C983B05425FCCC2B00162BF1 /* UserTableViewCell.swift in Sources */,
+				C983B06425FCFB1F00162BF1 /* Credential.swift in Sources */,
 				C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */,
 				C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */,
 				C983B02325FC90C200162BF1 /* AppDelegate.swift in Sources */,
+				C983B05E25FCF2C200162BF1 /* CredentialTableViewCell.swift in Sources */,
+				C983B05A25FCDD2300162BF1 /* SingleCredentialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

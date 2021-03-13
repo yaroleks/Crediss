@@ -102,6 +102,21 @@
             </objects>
             <point key="canvasLocation" x="1503" y="70"/>
         </scene>
+        <!--Single Credential View Controller-->
+        <scene sceneID="yVJ-CO-ZSq">
+            <objects>
+                <viewController storyboardIdentifier="SingleCredentialViewController" id="MkC-df-HFO" customClass="SingleCredentialViewController" customModule="Credis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vgO-qf-0WO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qMo-Mr-SpG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sfx-Ub-aWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2232" y="70"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
