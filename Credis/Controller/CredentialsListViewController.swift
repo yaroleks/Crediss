@@ -57,6 +57,7 @@ extension CredentialsListViewController: UITableViewDelegate, UITableViewDataSou
         guard let controller = storyboard.instantiateViewController(withIdentifier: String(describing: SingleCredentialViewController.self)) as? SingleCredentialViewController else {
             return
         }
+        controller.credential = credentials[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }

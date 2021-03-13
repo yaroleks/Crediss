@@ -19,6 +19,8 @@
 		C983B05E25FCF2C200162BF1 /* CredentialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B05D25FCF2C200162BF1 /* CredentialTableViewCell.swift */; };
 		C983B06125FCF2D000162BF1 /* CredentialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C983B06025FCF2D000162BF1 /* CredentialTableViewCell.xib */; };
 		C983B06425FCFB1F00162BF1 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B06325FCFB1F00162BF1 /* Credential.swift */; };
+		C983B06825FD03C700162BF1 /* SingleCredentialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C983B06725FD03C700162BF1 /* SingleCredentialView.xib */; };
+		C983B06B25FD03E100162BF1 /* SingleCredentialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B06A25FD03E100162BF1 /* SingleCredentialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		C983B05D25FCF2C200162BF1 /* CredentialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTableViewCell.swift; sourceTree = "<group>"; };
 		C983B06025FCF2D000162BF1 /* CredentialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredentialTableViewCell.xib; sourceTree = "<group>"; };
 		C983B06325FCFB1F00162BF1 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		C983B06725FD03C700162BF1 /* SingleCredentialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleCredentialView.xib; sourceTree = "<group>"; };
+		C983B06A25FD03E100162BF1 /* SingleCredentialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCredentialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		C983B03925FC925F00162BF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C983B06625FD03B500162BF1 /* SingleCredentialView */,
 				C983B05C25FCF2A600162BF1 /* CredentialTableViewCell */,
 				C983B05125FCCC0900162BF1 /* UserTableViewCell */,
 				C983B03A25FC927600162BF1 /* Storyboard */,
@@ -139,6 +144,15 @@
 				C983B06025FCF2D000162BF1 /* CredentialTableViewCell.xib */,
 			);
 			path = CredentialTableViewCell;
+			sourceTree = "<group>";
+		};
+		C983B06625FD03B500162BF1 /* SingleCredentialView */ = {
+			isa = PBXGroup;
+			children = (
+				C983B06725FD03C700162BF1 /* SingleCredentialView.xib */,
+				C983B06A25FD03E100162BF1 /* SingleCredentialView.swift */,
+			);
+			path = SingleCredentialView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +215,7 @@
 				C983B05725FCCC3D00162BF1 /* UserTableViewCell.xib in Resources */,
 				C983B02F25FC90C300162BF1 /* LaunchScreen.storyboard in Resources */,
 				C983B02C25FC90C300162BF1 /* Assets.xcassets in Resources */,
+				C983B06825FD03C700162BF1 /* SingleCredentialView.xib in Resources */,
 				C983B02A25FC90C200162BF1 /* Main.storyboard in Resources */,
 				C983B06125FCF2D000162BF1 /* CredentialTableViewCell.xib in Resources */,
 			);
@@ -218,6 +233,7 @@
 				C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */,
 				C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */,
 				C983B02325FC90C200162BF1 /* AppDelegate.swift in Sources */,
+				C983B06B25FD03E100162BF1 /* SingleCredentialView.swift in Sources */,
 				C983B05E25FCF2C200162BF1 /* CredentialTableViewCell.swift in Sources */,
 				C983B05A25FCDD2300162BF1 /* SingleCredentialViewController.swift in Sources */,
 			);

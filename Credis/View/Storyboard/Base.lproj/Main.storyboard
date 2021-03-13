@@ -109,9 +109,26 @@
                     <view key="view" contentMode="scaleToFill" id="vgO-qf-0WO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQm-hV-2qy" customClass="SingleCredentialView" customModule="Credis" customModuleProvider="target">
+                                <rect key="frame" x="32" y="76" width="350" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="DgS-8U-Qlw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="qMo-Mr-SpG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qMo-Mr-SpG" firstAttribute="trailing" secondItem="fQm-hV-2qy" secondAttribute="trailing" constant="32" id="R2S-sE-DlL"/>
+                            <constraint firstItem="fQm-hV-2qy" firstAttribute="top" secondItem="qMo-Mr-SpG" secondAttribute="top" constant="32" id="RzL-vi-9Ib"/>
+                            <constraint firstItem="fQm-hV-2qy" firstAttribute="leading" secondItem="qMo-Mr-SpG" secondAttribute="leading" constant="32" id="wfe-8d-w4a"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="singleCredentialsView" destination="fQm-hV-2qy" id="jsc-QL-a0i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfx-Ub-aWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
