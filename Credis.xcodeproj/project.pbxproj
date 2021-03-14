@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA167BFA4D3B011C6A949080 /* Pods_Credis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D9CDF200A7D2D4BAB7FFCD /* Pods_Credis.framework */; };
+		C9647B9425FE1FC4008C3A23 /* Credentials.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9647B9325FE1FC4008C3A23 /* Credentials.grpc.swift */; };
 		C983B02325FC90C200162BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B02225FC90C200162BF1 /* AppDelegate.swift */; };
 		C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B02625FC90C200162BF1 /* UsersListViewController.swift */; };
 		C983B02A25FC90C200162BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C983B02825FC90C200162BF1 /* Main.storyboard */; };
@@ -23,12 +24,16 @@
 		C983B06825FD03C700162BF1 /* SingleCredentialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C983B06725FD03C700162BF1 /* SingleCredentialView.xib */; };
 		C983B06B25FD03E100162BF1 /* SingleCredentialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B06A25FD03E100162BF1 /* SingleCredentialView.swift */; };
 		C9B4884825FD62E100206D53 /* Credentials.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4884725FD62E100206D53 /* Credentials.pb.swift */; };
+		C9B4885B25FD733B00206D53 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4885A25FD733B00206D53 /* NetworkService.swift */; };
+		C9B4885E25FD735000206D53 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4885D25FD735000206D53 /* NetworkManager.swift */; };
+		C9B4886225FD761200206D53 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4886125FD761200206D53 /* RequestBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3EEB3FB0DEC6E713B58530FC /* Pods-Credis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credis.release.xcconfig"; path = "Target Support Files/Pods-Credis/Pods-Credis.release.xcconfig"; sourceTree = "<group>"; };
 		8A081D5FF682860E2FEA5653 /* Pods-Credis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credis.debug.xcconfig"; path = "Target Support Files/Pods-Credis/Pods-Credis.debug.xcconfig"; sourceTree = "<group>"; };
 		A7D9CDF200A7D2D4BAB7FFCD /* Pods_Credis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Credis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9647B9325FE1FC4008C3A23 /* Credentials.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.grpc.swift; sourceTree = "<group>"; };
 		C983B01F25FC90C200162BF1 /* Credis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Credis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C983B02225FC90C200162BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C983B02625FC90C200162BF1 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +51,9 @@
 		C983B06725FD03C700162BF1 /* SingleCredentialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleCredentialView.xib; sourceTree = "<group>"; };
 		C983B06A25FD03E100162BF1 /* SingleCredentialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCredentialView.swift; sourceTree = "<group>"; };
 		C9B4884725FD62E100206D53 /* Credentials.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.pb.swift; sourceTree = "<group>"; };
+		C9B4885A25FD733B00206D53 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C9B4885D25FD735000206D53 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C9B4886125FD761200206D53 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +73,6 @@
 			children = (
 				C983B02125FC90C200162BF1 /* Credis */,
 				C983B02025FC90C200162BF1 /* Products */,
-				C9B4884625FD62E100206D53 /* Protobuf */,
 				D36F9B820BF25C8A87CDF94D /* Pods */,
 				CF20EEFC8BA69AFB76BCB06D /* Frameworks */,
 			);
@@ -85,6 +92,7 @@
 				C983B03825FC925700162BF1 /* Model */,
 				C983B03925FC925F00162BF1 /* View */,
 				C983B03B25FC929500162BF1 /* Controller */,
+				C9B4885725FD72B500206D53 /* Networking */,
 				C983B03C25FC92AF00162BF1 /* Application */,
 			);
 			path = Credis;
@@ -168,9 +176,21 @@
 		C9B4884625FD62E100206D53 /* Protobuf */ = {
 			isa = PBXGroup;
 			children = (
+				C9647B9325FE1FC4008C3A23 /* Credentials.grpc.swift */,
 				C9B4884725FD62E100206D53 /* Credentials.pb.swift */,
 			);
 			path = Protobuf;
+			sourceTree = "<group>";
+		};
+		C9B4885725FD72B500206D53 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C9B4885A25FD733B00206D53 /* NetworkService.swift */,
+				C9B4885D25FD735000206D53 /* NetworkManager.swift */,
+				C9B4886125FD761200206D53 /* RequestBuilder.swift */,
+				C9B4884625FD62E100206D53 /* Protobuf */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		CF20EEFC8BA69AFB76BCB06D /* Frameworks */ = {
@@ -307,9 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B4885B25FD733B00206D53 /* NetworkService.swift in Sources */,
 				C983B05425FCCC2B00162BF1 /* UserTableViewCell.swift in Sources */,
+				C9B4886225FD761200206D53 /* RequestBuilder.swift in Sources */,
+				C9647B9425FE1FC4008C3A23 /* Credentials.grpc.swift in Sources */,
 				C983B06425FCFB1F00162BF1 /* Credential.swift in Sources */,
 				C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */,
+				C9B4885E25FD735000206D53 /* NetworkManager.swift in Sources */,
 				C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */,
 				C983B02325FC90C200162BF1 /* AppDelegate.swift in Sources */,
 				C983B06B25FD03E100162BF1 /* SingleCredentialView.swift in Sources */,
