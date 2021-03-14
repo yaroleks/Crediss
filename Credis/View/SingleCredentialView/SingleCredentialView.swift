@@ -9,22 +9,28 @@ import UIKit
 
 fileprivate struct SingleCredentialConstatns {
     static let cornerRadius: CGFloat = 10
+    
+    struct Shadow {
+        static let shadowOffset = CGSize(width: 2, height: 2.0)
+        static let shadowOpacity: Float = 0.8
+        static let shadowRadius: CGFloat = 2
+    }
 }
 
 final class SingleCredentialView: UIView {
     
-    // MARK: IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var bodyView: UIView!
-    @IBOutlet weak var issuerLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var issuerLabel: UILabel!
+    @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var issuedOnLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     
     
-    // MARK: Initialization
+    // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -40,17 +46,19 @@ final class SingleCredentialView: UIView {
         setShadows()
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setupView(_ credential: Credential) {
-        titleLabel.text = credential.title
-        nameLabel.text = credential.subject
-        issuedOnLabel.text = String(credential.issuedOn)
-        idLabel.text = String(credential.id)
         issuerLabel.text = credential.issuer
+        subjectLabel.text = credential.subject
+        issuedOnLabel.text = formatDate(date: credential.issuedOn)
+        // YAROMYR'S MARK: - Should we show the id of the credential?
+        // or it should only be a system variable?
+        idLabel.text = String(credential.id)
+        titleLabel.text = credential.title
         isHidden = false
     }
 
-    // MARK: Private functions
+    // MARK: - Private functions
     private func commonInit() {
         instantiateView()
         addSubview(contentView)
@@ -85,10 +93,18 @@ final class SingleCredentialView: UIView {
 
         shadowLayer.shadowColor = UIColor.darkGray.cgColor
         shadowLayer.shadowPath = shadowLayer.path
-        shadowLayer.shadowOffset = CGSize(width: 2, height: 2.0)
-        shadowLayer.shadowOpacity = 0.8
-        shadowLayer.shadowRadius = 2
+        shadowLayer.shadowOffset = SingleCredentialConstatns.Shadow.shadowOffset
+        shadowLayer.shadowOpacity = SingleCredentialConstatns.Shadow.shadowOpacity
+        shadowLayer.shadowRadius = SingleCredentialConstatns.Shadow.shadowRadius
 
         layer.insertSublayer(shadowLayer, at: 0)
+    }
+    
+    private func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .short
+        formatter.timeZone = TimeZone.current
+        return formatter.string(from: date)
     }
 }

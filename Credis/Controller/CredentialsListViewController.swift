@@ -11,7 +11,7 @@ import UIKit
 
 final class CredentialsListViewController: UIViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     var credentials = [
         Credential(id: 1, issuedOn: 1, subject: "subject", issuer: "issuer", title: "title1"),
@@ -19,13 +19,13 @@ final class CredentialsListViewController: UIViewController {
         Credential(id: 1, issuedOn: 1, subject: "subject", issuer: "issuer", title: "title3")
     ]
     
-    // MARK: ViewController Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupUI() {
         tableView.register(
             UINib(nibName: String(describing: CredentialTableViewCell.self), bundle: nil),

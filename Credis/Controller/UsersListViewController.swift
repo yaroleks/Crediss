@@ -9,23 +9,23 @@ import UIKit
 
 final class UsersListViewController: UIViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     var uuid = [String]()
     
-    // MARK: ViewController Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
 
-    // MARK: IBActions
+    // MARK: - IBActions
     @IBAction func addPressed(_ sender: Any) {
         uuid.append(UUID().uuidString)
         tableView.reloadData()
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupUI() {
         tableView.register(
             UINib(nibName: String(describing: UserTableViewCell.self), bundle: nil),
@@ -57,6 +57,7 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let controller = storyboard.instantiateViewController(withIdentifier: String(describing: CredentialsListViewController.self)) as? CredentialsListViewController else {
             return
         }
+        controller.uuid = uuid[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }

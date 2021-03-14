@@ -9,6 +9,7 @@ import Foundation
 import GRPC
 
 fileprivate struct NetworkManagerConstants {
+    
     static let loopCount = 1
     static let host = "localhost"
     static let port = 50051
@@ -30,7 +31,7 @@ final class NetworkManager: NetworkService {
         let channel = ClientConnection
             .insecure(group: group)
             .connect(host: NetworkManagerConstants.host,
-                     port: NetworkManagerConstants.host)
+                     port: NetworkManagerConstants.port)
         return Io_Iohk_Test_Protos_CredentialsServiceClient(channel: channel)
     }()
     
@@ -63,10 +64,14 @@ final class NetworkManager: NetworkService {
         return response.credentials.compactMap { (protoCredential) -> Credential in
             return Credential(
                 id: protoCredential.id,
-                issuedOn: protoCredential.issuedOn,
+                issuedOn: convertToDate(protoCredential.issuedOn),
                 subject: protoCredential.subject,
                 issuer: protoCredential.issuer,
                 title: protoCredential.title)
         }
+    }
+    
+    private func convertToDate(_ millisecond: Int64) -> Date {
+        return Date(timeIntervalSince1970: Double(millisecond / 1000))
     }
 }
