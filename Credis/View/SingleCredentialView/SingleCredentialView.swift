@@ -51,8 +51,6 @@ final class SingleCredentialView: UIView {
         issuerLabel.text = credential.issuer
         subjectLabel.text = credential.subject
         issuedOnLabel.text = formatDate(date: credential.issuedOn)
-        // YAROMYR'S MARK: - Should we show the id of the credential?
-        // or it should only be a system variable?
         idLabel.text = String(credential.id)
         titleLabel.text = credential.title
         isHidden = false

@@ -33,6 +33,10 @@ final class CredentialsListViewController: UIViewController {
         updateDatasource()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Private methods
     private func setupUI() {
         tableView.register(
@@ -68,6 +72,7 @@ extension CredentialsListViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CredentialTableViewCell.self)) as? CredentialTableViewCell {
             cell.credentialLabel.text = credentials[indexPath.row].title
+            cell.newLabel.isHidden = credentials[indexPath.row].alreadySeen
             return cell
         }
         return UITableViewCell()
@@ -83,6 +88,7 @@ extension CredentialsListViewController: UITableViewDelegate, UITableViewDataSou
             return
         }
         controller.credential = credentials[indexPath.row]
+        storageService.updateCredentialSeenValue(credentials[indexPath.row], true)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

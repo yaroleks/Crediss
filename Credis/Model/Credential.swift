@@ -15,6 +15,7 @@ class Credential: Object {
     @objc dynamic var subject: String = ""
     @objc dynamic var issuer: String = ""
     @objc dynamic var title: String = ""
+    @objc dynamic var alreadySeen: Bool = false
     
     // Used for linking between a credential and a user
     @objc dynamic var userId: String = ""

@@ -17,4 +17,5 @@ protocol StorageService {
     // MARK: - Credentials
     func credentials(for userId: String) -> [Credential]
     func addCredentials(_ credentials: [Credential],  for userId: String)
+    func updateCredentialSeenValue(_ credential: Credential, _ seen: Bool)
 }

@@ -10,4 +10,5 @@ import UIKit
 class CredentialTableViewCell: UITableViewCell {
 
     @IBOutlet weak var credentialLabel: UILabel!
+    @IBOutlet weak var newLabel: UILabel!
 }

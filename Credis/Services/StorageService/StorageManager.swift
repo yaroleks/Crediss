@@ -71,4 +71,14 @@ final class StorageManager: StorageService {
             print("Write operation cannot be finished - Handle in production app")
         }
     }
+    
+    func updateCredentialSeenValue(_ credential: Credential, _ seen: Bool) {
+        do {
+            try realm.write {
+                credential.alreadySeen = seen
+            }
+        } catch {
+            print("Write operation cannot be finished - Handle in production app")
+        }
+    }
 }
