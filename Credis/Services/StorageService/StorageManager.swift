@@ -38,8 +38,18 @@ final class StorageManager: StorageService {
         }
     }
     
-    // MARK: - Credentials
+    func removeUserAndCredentials(for user: User) {
+        do {
+            try realm.write {
+                realm.delete(credentials(for: user.id))
+                realm.delete(user)
+            }
+        } catch {
+            print("Write operation cannot be finished - Handle in production app")
+        }
+    }
     
+    // MARK: - Credentials
     func credentials(for userId: String) -> [Credential] {
         let keyPath = #keyPath(Credential.userId)
        

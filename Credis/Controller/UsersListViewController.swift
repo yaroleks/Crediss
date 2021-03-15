@@ -7,6 +7,10 @@
 
 import UIKit
 
+fileprivate struct UsersListConstants {
+    static let deleteButtonTitle = "Delete"
+}
+
 final class UsersListViewController: UIViewController {
 
     // MARK: - Properties
@@ -63,6 +67,18 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         controller.user = users[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let removeAction = UIContextualAction(
+            style: .destructive,
+            title: UsersListConstants.deleteButtonTitle
+        ) { [weak self] (_, _, _) in
+            guard let self = self else { return }
+            self.storageService.removeUserAndCredentials(for: self.users[indexPath.row])
+            tableView.reloadData()
+        }
+        return UISwipeActionsConfiguration(actions: [removeAction])
     }
 }
 
