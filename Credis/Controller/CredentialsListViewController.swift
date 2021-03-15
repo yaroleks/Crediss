@@ -11,18 +11,26 @@ import UIKit
 
 final class CredentialsListViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet private weak var tableView: UITableView!
+    
     // MARK: - Properties
-    @IBOutlet weak var tableView: UITableView!
-    var credentials = [
-        Credential(id: 1, issuedOn: 1, subject: "subject", issuer: "issuer", title: "title1"),
-        Credential(id: 1, issuedOn: 1, subject: "subject", issuer: "issuer", title: "title2"),
-        Credential(id: 1, issuedOn: 1, subject: "subject", issuer: "issuer", title: "title3")
-    ]
+    private var storageService: StorageService = StorageManager.shared
+    private var networkService: NetworkService = NetworkManager.shared
+    private var credentials: [Credential] {
+        if let userId = user?.id {
+            return storageService.credentials(for: userId).sorted{ $0.id < $1.id }
+        } else {
+            return [Credential]()
+        }
+    }
+    var user: User?
     
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        updateDatasource()
     }
     
     // MARK: - Private methods
@@ -31,6 +39,23 @@ final class CredentialsListViewController: UIViewController {
             UINib(nibName: String(describing: CredentialTableViewCell.self), bundle: nil),
             forCellReuseIdentifier: String(describing: CredentialTableViewCell.self)
         )
+    }
+    
+    private func updateDatasource() {
+        // TODO: Implement Datasource class that would get credentials
+        if let userId = user?.id {
+            networkService.credentials(userId: userId, after: credentials.last?.id ?? 0) { [weak self] (credentials, error) in
+                guard let self = self else { return }
+                if let error = error {
+                    print("In the production - error should be handled: \(error)")
+                } else if let credentials = credentials {
+                    DispatchQueue.main.async {
+                        self.storageService.addCredentials(credentials, for: userId)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
     }
 }
 
