@@ -10,8 +10,12 @@ import UIKit
 final class UsersListViewController: UIViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var tableView: UITableView!
-    var uuid = [String]()
+    @IBOutlet private weak var tableView: UITableView!
+    lazy private var storageService: StorageService = StorageManager.shared
+    private var users: [User] {
+        return storageService.users()
+    }
+    
     
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
@@ -21,7 +25,7 @@ final class UsersListViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func addPressed(_ sender: Any) {
-        uuid.append(UUID().uuidString)
+        storageService.addUser(User(uuid: UUID().uuidString))
         tableView.reloadData()
     }
     
@@ -37,12 +41,12 @@ final class UsersListViewController: UIViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return uuid.count
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserTableViewCell.self)) as? UserTableViewCell {
-            cell.uuidLabel.text = uuid[indexPath.row]
+            cell.uuidLabel.text = users[indexPath.row].id
             return cell
         }
         return UITableViewCell()
@@ -57,7 +61,7 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let controller = storyboard.instantiateViewController(withIdentifier: String(describing: CredentialsListViewController.self)) as? CredentialsListViewController else {
             return
         }
-        controller.uuid = uuid[indexPath.row]
+        controller.user = users[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }

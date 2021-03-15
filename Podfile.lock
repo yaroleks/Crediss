@@ -18,6 +18,11 @@ PODS:
     - SwiftNIOTransportServices (< 2.0.0, >= 1.6.0)
     - SwiftProtobuf (< 2.0.0, >= 1.9.0)
   - Logging (1.4.0)
+  - Realm (10.5.0):
+    - Realm/Headers (= 10.5.0)
+  - Realm/Headers (10.5.0)
+  - RealmSwift (10.5.0):
+    - Realm (= 10.5.0)
   - SwiftNIO (2.26.0):
     - CNIODarwin (= 2.26.0)
     - CNIOLinux (= 2.26.0)
@@ -60,6 +65,7 @@ PODS:
 
 DEPENDENCIES:
   - gRPC-Swift (~> 1.0.0)
+  - RealmSwift
   - SwiftProtobuf (~> 1.0)
 
 SPEC REPOS:
@@ -74,6 +80,8 @@ SPEC REPOS:
     - CNIOWindows
     - gRPC-Swift
     - Logging
+    - Realm
+    - RealmSwift
     - SwiftNIO
     - SwiftNIOConcurrencyHelpers
     - SwiftNIOExtras
@@ -97,6 +105,8 @@ SPEC CHECKSUMS:
   CNIOWindows: 0af55cf84c3811318aee91888737e0b124552029
   gRPC-Swift: 77154009a019e97f8c4bd8f2bb75fe9726801157
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
+  Realm: e1c22c3d83b229afb70ebc10e1771c91e9542d12
+  RealmSwift: 6fc078d9d3fd7e58c71bfdbb694e252462f112a5
   SwiftNIO: 1f309539cfe7ed42648f505a48c546e83a2f66c3
   SwiftNIOConcurrencyHelpers: ebbceb814afcd8b4fab86935855f6c8c77ae4285
   SwiftNIOExtras: aa561b71020cd6844f722cf4513fb176c577414d
@@ -109,6 +119,6 @@ SPEC CHECKSUMS:
   SwiftNIOTransportServices: 896c9a4ac98698d32aa2feea7657ade219ae80bb
   SwiftProtobuf: 3320217e9d8fb75f36b40282e78c482640fd75dd
 
-PODFILE CHECKSUM: 4c87656fb9cb06ea75219267eb24c428bc32427d
+PODFILE CHECKSUM: e50c543100907cc98dffbc3708f2510b8ce94e7c
 
 COCOAPODS: 1.10.0

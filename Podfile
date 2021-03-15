@@ -7,5 +7,6 @@ target 'Credis' do
 
   pod 'SwiftProtobuf', '~> 1.0'
   pod 'gRPC-Swift', '~> 1.0.0'
+  pod 'RealmSwift'
 
 end

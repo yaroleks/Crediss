@@ -6,12 +6,25 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Credential {
+class Credential: Object {
 
-    let id: Int32
-    let issuedOn: Date
-    let subject: String
-    let issuer: String
-    let title: String
+    @objc dynamic var id: Int32 = 0
+    @objc dynamic var issuedOn: Date = Date()
+    @objc dynamic var subject: String = ""
+    @objc dynamic var issuer: String = ""
+    @objc dynamic var title: String = ""
+    
+    // Used for linking between a credential and a user
+    @objc dynamic var userId: String = ""
+    
+    convenience init(id: Int32, issuedOn: Date, subject: String, issuer: String, title: String) {
+        self.init()
+        self.id = id
+        self.issuedOn = issuedOn
+        self.subject = subject
+        self.issuer = issuer
+        self.title = title
+    }
 }
