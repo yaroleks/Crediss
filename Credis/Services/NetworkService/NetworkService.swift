@@ -11,5 +11,5 @@ protocol NetworkService {
     
     typealias credentialsCompletion = ([Credential]?, Error?) -> ()
     
-    func credentials(userId: String, limit: Int32, after: Int32, completion: @escaping credentialsCompletion)
+    func credentials(userId: String, after: Int32, completion: @escaping credentialsCompletion)
 }

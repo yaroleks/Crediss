@@ -10,51 +10,58 @@ import GRPC
 
 fileprivate struct NetworkManagerConstants {
     
-    static let loopCount = 1
-    static let host = "localhost"
-    static let port = 50051
+    struct Configuration {
+        static let loopCount = 1
+        static let host = "localhost"
+        static let port = 50051
+    }
+    
+    struct Credentials {
+        static let credentialsLimit: Int32 = 2
+    }
 }
 
 final class NetworkManager: NetworkService {
     
     // MARK: - Initialization
     static let shared = NetworkManager()
-    
-    private init(requestBuilder: RequestBuilder = RequestBuilder()) {
-        self.requestBuilder = requestBuilder
-    }
+    private init() { }
     
     // MARK: - ServiceClient
     private let serviceClient: Io_Iohk_Test_Protos_CredentialsServiceClient = {
         let group = PlatformSupport.makeEventLoopGroup(
-            loopCount: NetworkManagerConstants.loopCount)
+            loopCount: NetworkManagerConstants.Configuration.loopCount)
         let channel = ClientConnection
             .insecure(group: group)
-            .connect(host: NetworkManagerConstants.host,
-                     port: NetworkManagerConstants.port)
+            .connect(host: NetworkManagerConstants.Configuration.host,
+                     port: NetworkManagerConstants.Configuration.port)
         return Io_Iohk_Test_Protos_CredentialsServiceClient(channel: channel)
     }()
     
     // MARK: - Properties
-    private var requestBuilder: RequestBuilder
+    private var requestBuilder: RequestBuilder = RequestBuilder()
     
     // MARK: - Public Methods
-    func credentials(
-        userId: String,
-        limit: Int32,
-        after: Int32,
-        completion: @escaping credentialsCompletion
-    ) {
-        let request = requestBuilder.credentialRequest(userId: userId, limit: limit, after: after)
+    func credentials(userId: String, after: Int32 = 0, completion: @escaping credentialsCompletion) {
+        let request = requestBuilder.credentialRequest(
+            userId: userId,
+            limit: NetworkManagerConstants.Credentials.credentialsLimit,
+            after: after
+        )
         
         serviceClient.getCredentials(request).response.whenComplete({ [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let responseData):
-                completion(self.parse(responseData), nil)
+            case .success(let response):
+                let parsedCredentials = self.parse(response)
+                if parsedCredentials.count == request.limit,
+                   let lastId = parsedCredentials.last?.id {
+                    self.credentials(userId: userId, after: lastId, completion: completion)
+                } else {
+                    completion(self.parse(response), nil)
+                }
             case .failure(let error):
-                // Error should be handled in the real app with showing a pop-up, view, etc."
-                print("Error: \(error)")
+                completion(nil, error)
             }
         })
     }
