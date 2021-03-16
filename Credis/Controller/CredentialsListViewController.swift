@@ -119,7 +119,9 @@ extension CredentialsListViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // NOTE: If it was a production app - we should have used a Coordinator class
+        // to handle moving between screens
+        let storyboard = UIStoryboard(name: Storyboards.SingleCredential.rawValue, bundle: nil)
         guard let controller = storyboard.instantiateViewController(withIdentifier: String(describing: SingleCredentialViewController.self)) as? SingleCredentialViewController else {
             return
         }

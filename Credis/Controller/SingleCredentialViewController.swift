@@ -27,5 +27,4 @@ final class SingleCredentialViewController: UIViewController {
             singleCredentialsView.setupView(credential)
         }
     }
-
 }

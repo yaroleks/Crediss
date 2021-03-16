@@ -14,7 +14,7 @@
 		C97675CD25FEAA6E009C207F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97675CC25FEAA6E009C207F /* StorageManager.swift */; };
 		C983B02325FC90C200162BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B02225FC90C200162BF1 /* AppDelegate.swift */; };
 		C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B02625FC90C200162BF1 /* UsersListViewController.swift */; };
-		C983B02A25FC90C200162BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C983B02825FC90C200162BF1 /* Main.storyboard */; };
+		C983B02A25FC90C200162BF1 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C983B02825FC90C200162BF1 /* Users.storyboard */; };
 		C983B02C25FC90C300162BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C983B02B25FC90C300162BF1 /* Assets.xcassets */; };
 		C983B02F25FC90C300162BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C983B02D25FC90C300162BF1 /* LaunchScreen.storyboard */; };
 		C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B04E25FCCAA900162BF1 /* CredentialsListViewController.swift */; };
@@ -31,6 +31,9 @@
 		C9B4885B25FD733B00206D53 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4885A25FD733B00206D53 /* NetworkService.swift */; };
 		C9B4885E25FD735000206D53 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4885D25FD735000206D53 /* NetworkManager.swift */; };
 		C9B4886225FD761200206D53 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4886125FD761200206D53 /* RequestBuilder.swift */; };
+		C9D667962600DFDA00D8A4E2 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D667952600DFDA00D8A4E2 /* Storyboards.swift */; };
+		C9D6679A2600E06400D8A4E2 /* Credentials.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D667992600E06400D8A4E2 /* Credentials.storyboard */; };
+		C9D6679D2600E08800D8A4E2 /* SingleCredential.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D6679C2600E08800D8A4E2 /* SingleCredential.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +47,7 @@
 		C983B01F25FC90C200162BF1 /* Credis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Credis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C983B02225FC90C200162BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C983B02625FC90C200162BF1 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
-		C983B02925FC90C200162BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C983B02925FC90C200162BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Users.storyboard; sourceTree = "<group>"; };
 		C983B02B25FC90C300162BF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C983B02E25FC90C300162BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C983B03025FC90C300162BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +65,9 @@
 		C9B4885A25FD733B00206D53 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C9B4885D25FD735000206D53 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C9B4886125FD761200206D53 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		C9D667952600DFDA00D8A4E2 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		C9D667992600E06400D8A4E2 /* Credentials.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Credentials.storyboard; sourceTree = "<group>"; };
+		C9D6679C2600E08800D8A4E2 /* SingleCredential.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingleCredential.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,21 +143,21 @@
 		C983B03925FC925F00162BF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9D667982600E00F00D8A4E2 /* TableViewCells */,
 				C983B06625FD03B500162BF1 /* SingleCredentialView */,
-				C983B05C25FCF2A600162BF1 /* CredentialTableViewCell */,
-				C983B05125FCCC0900162BF1 /* UserTableViewCell */,
-				C983B03A25FC927600162BF1 /* Storyboard */,
+				C983B03A25FC927600162BF1 /* Storyboards */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		C983B03A25FC927600162BF1 /* Storyboard */ = {
+		C983B03A25FC927600162BF1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				C983B02825FC90C200162BF1 /* Main.storyboard */,
-				C983B02D25FC90C300162BF1 /* LaunchScreen.storyboard */,
+				C983B02825FC90C200162BF1 /* Users.storyboard */,
+				C9D667992600E06400D8A4E2 /* Credentials.storyboard */,
+				C9D6679C2600E08800D8A4E2 /* SingleCredential.storyboard */,
 			);
-			path = Storyboard;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		C983B03B25FC929500162BF1 /* Controller */ = {
@@ -167,6 +173,7 @@
 		C983B03C25FC92AF00162BF1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C983B02D25FC90C300162BF1 /* LaunchScreen.storyboard */,
 				C983B02225FC90C200162BF1 /* AppDelegate.swift */,
 				C983B03025FC90C300162BF1 /* Info.plist */,
 				C983B02B25FC90C300162BF1 /* Assets.xcassets */,
@@ -205,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				C98B2E1A26000F6500164B8F /* Color.swift */,
+				C9D667952600DFDA00D8A4E2 /* Storyboards.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -227,6 +235,15 @@
 				C9B4884625FD62E100206D53 /* Protobuf */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		C9D667982600E00F00D8A4E2 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				C983B05C25FCF2A600162BF1 /* CredentialTableViewCell */,
+				C983B05125FCCC0900162BF1 /* UserTableViewCell */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		CF20EEFC8BA69AFB76BCB06D /* Frameworks */ = {
@@ -309,8 +326,10 @@
 				C983B02F25FC90C300162BF1 /* LaunchScreen.storyboard in Resources */,
 				C983B02C25FC90C300162BF1 /* Assets.xcassets in Resources */,
 				C983B06825FD03C700162BF1 /* SingleCredentialView.xib in Resources */,
-				C983B02A25FC90C200162BF1 /* Main.storyboard in Resources */,
+				C9D6679A2600E06400D8A4E2 /* Credentials.storyboard in Resources */,
+				C983B02A25FC90C200162BF1 /* Users.storyboard in Resources */,
 				C983B06125FCF2D000162BF1 /* CredentialTableViewCell.xib in Resources */,
+				C9D6679D2600E08800D8A4E2 /* SingleCredential.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +388,7 @@
 				C9647B9425FE1FC4008C3A23 /* Credential.grpc.swift in Sources */,
 				C98B2E1B26000F6500164B8F /* Color.swift in Sources */,
 				C983B06425FCFB1F00162BF1 /* Credential.swift in Sources */,
+				C9D667962600DFDA00D8A4E2 /* Storyboards.swift in Sources */,
 				C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */,
 				C97675C325FEA794009C207F /* User.swift in Sources */,
 				C9B4885E25FD735000206D53 /* NetworkManager.swift in Sources */,
@@ -386,12 +406,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C983B02825FC90C200162BF1 /* Main.storyboard */ = {
+		C983B02825FC90C200162BF1 /* Users.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C983B02925FC90C200162BF1 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Users.storyboard;
 			sourceTree = "<group>";
 		};
 		C983B02D25FC90C300162BF1 /* LaunchScreen.storyboard */ = {

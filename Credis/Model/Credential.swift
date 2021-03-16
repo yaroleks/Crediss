@@ -16,8 +16,6 @@ class Credential: Object {
     @objc dynamic var issuer: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var alreadySeen: Bool = false
-    
-    // Used for linking between a credential and a user
     @objc dynamic var userId: String = ""
     
     convenience init(id: Int32, issuedOn: Date, subject: String, issuer: String, title: String) {

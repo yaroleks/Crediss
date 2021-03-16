@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -85,93 +84,9 @@
             </objects>
             <point key="canvasLocation" x="-233.33333333333334" y="69.642857142857139"/>
         </scene>
-        <!--Credentials-->
-        <scene sceneID="N6o-PH-CaV">
-            <objects>
-                <viewController storyboardIdentifier="CredentialsListViewController" title="Credentials" id="Jw7-97-uhZ" customClass="CredentialsListViewController" customModule="Credis" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9xW-VG-tVW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0S-dN-spT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kEt-Xq-W4j">
-                                        <rect key="frame" x="16" y="16" width="382" height="786"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="Jw7-97-uhZ" id="OPQ-nY-qXg"/>
-                                            <outlet property="delegate" destination="Jw7-97-uhZ" id="ioa-3L-WnP"/>
-                                        </connections>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="kEt-Xq-W4j" secondAttribute="trailing" constant="16" id="BwQ-6R-wEq"/>
-                                    <constraint firstAttribute="bottom" secondItem="kEt-Xq-W4j" secondAttribute="bottom" constant="16" id="baa-cl-mDa"/>
-                                    <constraint firstItem="kEt-Xq-W4j" firstAttribute="top" secondItem="N0S-dN-spT" secondAttribute="top" constant="16" id="hFC-ep-jz0"/>
-                                    <constraint firstItem="kEt-Xq-W4j" firstAttribute="leading" secondItem="N0S-dN-spT" secondAttribute="leading" constant="16" id="tlx-Jd-Nr6"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="gNc-kX-Rl0"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="gNc-kX-Rl0" firstAttribute="bottom" secondItem="N0S-dN-spT" secondAttribute="bottom" id="C9f-Zd-Cxz"/>
-                            <constraint firstItem="N0S-dN-spT" firstAttribute="leading" secondItem="9xW-VG-tVW" secondAttribute="leading" id="Tet-ka-Yfj"/>
-                            <constraint firstItem="N0S-dN-spT" firstAttribute="top" secondItem="gNc-kX-Rl0" secondAttribute="top" id="cHL-U2-xOb"/>
-                            <constraint firstAttribute="trailing" secondItem="N0S-dN-spT" secondAttribute="trailing" id="nec-lA-5u8"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Credentials" id="hIC-AV-cDi"/>
-                    <connections>
-                        <outlet property="tableView" destination="kEt-Xq-W4j" id="c02-SB-EnF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f6F-Vz-Fo5" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1503" y="70"/>
-        </scene>
-        <!--Single Credential View Controller-->
-        <scene sceneID="yVJ-CO-ZSq">
-            <objects>
-                <viewController storyboardIdentifier="SingleCredentialViewController" id="MkC-df-HFO" customClass="SingleCredentialViewController" customModule="Credis" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vgO-qf-0WO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQm-hV-2qy" customClass="SingleCredentialView" customModule="Credis" customModuleProvider="target">
-                                <rect key="frame" x="32" y="76" width="350" height="250"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="DgS-8U-Qlw"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="qMo-Mr-SpG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="qMo-Mr-SpG" firstAttribute="trailing" secondItem="fQm-hV-2qy" secondAttribute="trailing" constant="32" id="R2S-sE-DlL"/>
-                            <constraint firstItem="fQm-hV-2qy" firstAttribute="top" secondItem="qMo-Mr-SpG" secondAttribute="top" constant="32" id="RzL-vi-9Ib"/>
-                            <constraint firstItem="fQm-hV-2qy" firstAttribute="leading" secondItem="qMo-Mr-SpG" secondAttribute="leading" constant="32" id="wfe-8d-w4a"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="singleCredentialsView" destination="fQm-hV-2qy" id="jsc-QL-a0i"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sfx-Ub-aWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2232" y="70"/>
-        </scene>
     </scenes>
     <resources>
         <image name="person.badge.plus.fill" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
