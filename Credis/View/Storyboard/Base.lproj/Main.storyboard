@@ -16,26 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KqP-m9-5ql">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2C-iZ-HF4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="2Jn-td-Gom"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UAY-41-hhV"/>
-                                </connections>
-                            </tableView>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KqP-m9-5ql">
+                                        <rect key="frame" x="16" y="16" width="382" height="742"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="2Jn-td-Gom"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="UAY-41-hhV"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KqP-m9-5ql" secondAttribute="trailing" constant="16" id="6zg-IM-20p"/>
+                                    <constraint firstItem="KqP-m9-5ql" firstAttribute="top" secondItem="L2C-iZ-HF4" secondAttribute="top" constant="16" id="DGI-Wf-rNb"/>
+                                    <constraint firstItem="KqP-m9-5ql" firstAttribute="leading" secondItem="L2C-iZ-HF4" secondAttribute="leading" constant="16" id="F9P-B5-1cx"/>
+                                    <constraint firstAttribute="bottom" secondItem="KqP-m9-5ql" secondAttribute="bottom" constant="16" id="RDH-PP-acz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KqP-m9-5ql" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3Rp-bn-9CF"/>
-                            <constraint firstItem="KqP-m9-5ql" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Hg-7x-Jll"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KqP-m9-5ql" secondAttribute="trailing" id="iDR-1W-4oW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KqP-m9-5ql" secondAttribute="bottom" id="wGj-rL-Tb7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L2C-iZ-HF4" secondAttribute="trailing" id="0BC-mI-WIQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L2C-iZ-HF4" secondAttribute="bottom" id="9iX-Je-NnK"/>
+                            <constraint firstItem="L2C-iZ-HF4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EXI-cy-hJm"/>
+                            <constraint firstItem="L2C-iZ-HF4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="diJ-SP-mHu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Users" id="QYB-EK-rtl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LIJ-SC-Jwn">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.badge.plus.fill" catalog="system" largeContentSizeImage="plus" style="plain" id="LIJ-SC-Jwn">
+                            <color key="tintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addPressed:" destination="BYZ-38-t0r" id="B2H-ll-Tez"/>
                             </connections>
@@ -54,9 +69,12 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dcR-Ys-706" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="weP-b5-L9x">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" id="weP-b5-L9x">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -75,22 +93,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kEt-Xq-W4j">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0S-dN-spT">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Jw7-97-uhZ" id="OPQ-nY-qXg"/>
-                                    <outlet property="delegate" destination="Jw7-97-uhZ" id="ioa-3L-WnP"/>
-                                </connections>
-                            </tableView>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kEt-Xq-W4j">
+                                        <rect key="frame" x="16" y="16" width="382" height="786"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Jw7-97-uhZ" id="OPQ-nY-qXg"/>
+                                            <outlet property="delegate" destination="Jw7-97-uhZ" id="ioa-3L-WnP"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kEt-Xq-W4j" secondAttribute="trailing" constant="16" id="BwQ-6R-wEq"/>
+                                    <constraint firstAttribute="bottom" secondItem="kEt-Xq-W4j" secondAttribute="bottom" constant="16" id="baa-cl-mDa"/>
+                                    <constraint firstItem="kEt-Xq-W4j" firstAttribute="top" secondItem="N0S-dN-spT" secondAttribute="top" constant="16" id="hFC-ep-jz0"/>
+                                    <constraint firstItem="kEt-Xq-W4j" firstAttribute="leading" secondItem="N0S-dN-spT" secondAttribute="leading" constant="16" id="tlx-Jd-Nr6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gNc-kX-Rl0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gNc-kX-Rl0" firstAttribute="trailing" secondItem="kEt-Xq-W4j" secondAttribute="trailing" id="Dnq-CK-mHL"/>
-                            <constraint firstItem="kEt-Xq-W4j" firstAttribute="top" secondItem="gNc-kX-Rl0" secondAttribute="top" id="Vsc-cQ-DAb"/>
-                            <constraint firstItem="gNc-kX-Rl0" firstAttribute="bottom" secondItem="kEt-Xq-W4j" secondAttribute="bottom" id="a8o-VB-3wN"/>
-                            <constraint firstItem="kEt-Xq-W4j" firstAttribute="leading" secondItem="gNc-kX-Rl0" secondAttribute="leading" id="kOA-Nw-EIl"/>
+                            <constraint firstItem="gNc-kX-Rl0" firstAttribute="bottom" secondItem="N0S-dN-spT" secondAttribute="bottom" id="C9f-Zd-Cxz"/>
+                            <constraint firstItem="N0S-dN-spT" firstAttribute="leading" secondItem="9xW-VG-tVW" secondAttribute="leading" id="Tet-ka-Yfj"/>
+                            <constraint firstItem="N0S-dN-spT" firstAttribute="top" secondItem="gNc-kX-Rl0" secondAttribute="top" id="cHL-U2-xOb"/>
+                            <constraint firstAttribute="trailing" secondItem="N0S-dN-spT" secondAttribute="trailing" id="nec-lA-5u8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Credentials" id="hIC-AV-cDi"/>
@@ -136,6 +168,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.badge.plus.fill" catalog="system" width="128" height="124"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,13 +7,15 @@
 
 import UIKit
 
-fileprivate struct SingleCredentialConstatns {
+fileprivate struct Constants {
     static let cornerRadius: CGFloat = 10
     
     struct Shadow {
         static let shadowOffset = CGSize(width: 2, height: 2.0)
         static let shadowOpacity: Float = 0.8
         static let shadowRadius: CGFloat = 2
+        static let shadowColor = Color.mainThemeColor.cgColor
+        static let fillColor = Color.backgroundColor.cgColor
     }
 }
 
@@ -70,7 +72,8 @@ final class SingleCredentialView: UIView {
     
     private func configureUI() {
         contentView.frame = bounds
-        contentView.layer.cornerRadius = SingleCredentialConstatns.cornerRadius
+        contentView.layer.cornerRadius = Constants.cornerRadius
+        headerView.backgroundColor = Color.mainThemeColor
         addConstraints()
     }
     
@@ -86,14 +89,16 @@ final class SingleCredentialView: UIView {
     
     private func setShadows() {
         let shadowLayer = CAShapeLayer()
-        shadowLayer.path = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: SingleCredentialConstatns.cornerRadius).cgPath
-        shadowLayer.fillColor = UIColor.white.cgColor
-
-        shadowLayer.shadowColor = UIColor.darkGray.cgColor
+        shadowLayer.path = UIBezierPath(
+            roundedRect: contentView.bounds,
+            cornerRadius: Constants.cornerRadius).cgPath
         shadowLayer.shadowPath = shadowLayer.path
-        shadowLayer.shadowOffset = SingleCredentialConstatns.Shadow.shadowOffset
-        shadowLayer.shadowOpacity = SingleCredentialConstatns.Shadow.shadowOpacity
-        shadowLayer.shadowRadius = SingleCredentialConstatns.Shadow.shadowRadius
+        
+        shadowLayer.fillColor = Constants.Shadow.fillColor
+        shadowLayer.shadowColor = Constants.Shadow.shadowColor
+        shadowLayer.shadowOffset = Constants.Shadow.shadowOffset
+        shadowLayer.shadowOpacity = Constants.Shadow.shadowOpacity
+        shadowLayer.shadowRadius = Constants.Shadow.shadowRadius
 
         layer.insertSublayer(shadowLayer, at: 0)
     }

@@ -11,7 +11,7 @@ import UIKit
 import NotificationBannerSwift
 
 fileprivate struct Constants {
-    static let cornerRadius: CGFloat = 15
+    static let tableViewCornerRadius: CGFloat = 15
     
     struct Banner {
         static let bannerTitle = "New credentials were added"
@@ -20,6 +20,8 @@ fileprivate struct Constants {
         static let subtitleColor = Color.backgroundColor
         static let duration = 1.5
     }
+    
+    static let cellHeight: CGFloat = 55
 }
 
 final class CredentialsListViewController: UIViewController {
@@ -56,6 +58,11 @@ final class CredentialsListViewController: UIViewController {
             UINib(nibName: String(describing: CredentialTableViewCell.self), bundle: nil),
             forCellReuseIdentifier: String(describing: CredentialTableViewCell.self)
         )
+        tableView.layer.cornerRadius = Constants.tableViewCornerRadius
+        tableView.separatorColor = Color.backgroundColor
+        view.backgroundColor = Color.backgroundColor
+    }
+    
     private func showBanner(_ title: String, _ subtitle: String) {
         let banner = NotificationBanner(title: title, subtitle: subtitle, style: .success)
         banner.backgroundColor = Constants.Banner.backgroundColor
@@ -89,8 +96,13 @@ final class CredentialsListViewController: UIViewController {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension CredentialsListViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return credentials.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.cellHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

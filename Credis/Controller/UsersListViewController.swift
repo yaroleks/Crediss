@@ -7,8 +7,12 @@
 
 import UIKit
 
-fileprivate struct UsersListConstants {
+fileprivate struct Constants {
+    static let backgroundColor = Color.backgroundColor
     static let deleteButtonTitle = "Delete"
+    static let cellHeight: CGFloat = 80
+    static let tableViewCornerRadius: CGFloat = 15
+    static let tableViewSeparatorColor = Color.backgroundColor
 }
 
 final class UsersListViewController: UIViewController {
@@ -35,6 +39,10 @@ final class UsersListViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupUI() {
+        view.backgroundColor = Constants.backgroundColor
+        tableView.layer.cornerRadius = Constants.tableViewCornerRadius
+        tableView.separatorColor = Constants.tableViewSeparatorColor
+    }
         tableView.register(
             UINib(nibName: String(describing: UserTableViewCell.self), bundle: nil),
             forCellReuseIdentifier: String(describing: UserTableViewCell.self)
@@ -46,6 +54,10 @@ final class UsersListViewController: UIViewController {
 extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.cellHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +84,7 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let removeAction = UIContextualAction(
             style: .destructive,
-            title: UsersListConstants.deleteButtonTitle
+            title: Constants.deleteButtonTitle
         ) { [weak self] (_, _, _) in
             guard let self = self else { return }
             self.storageService.removeUserAndCredentials(for: self.users[indexPath.row])
