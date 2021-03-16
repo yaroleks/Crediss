@@ -39,7 +39,7 @@ final class NetworkManager: NetworkService {
     }()
     
     // MARK: - Properties
-    private var requestBuilder: RequestBuilder = RequestBuilder()
+    private let requestBuilder: RequestBuilder = RequestBuilder()
     
     // MARK: - Public Methods
     func credentials(userId: String, after: Int32 = 0, completion: @escaping credentialsCompletion) {

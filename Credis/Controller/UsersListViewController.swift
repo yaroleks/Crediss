@@ -19,9 +19,10 @@ final class UsersListViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet private weak var tableView: UITableView!
-    lazy private var storageService: StorageService = StorageManager.shared
+    // Normally it should be injected here from Coordinator
+    private let userListModel: UserListModelProtocol = UserListModel()
     private var users: [User] {
-        return storageService.users()
+        return userListModel.users()
     }
     
     // MARK: - ViewController Lifecycle
@@ -33,7 +34,7 @@ final class UsersListViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func addPressed(_ sender: Any) {
-        storageService.addUser(User(uuid: UUID().uuidString))
+        userListModel.addUser()
         tableView.reloadData()
     }
     
@@ -85,6 +86,7 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         controller.user = users[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
+        // Check if there is a connection to the server
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -93,7 +95,7 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
             title: Constants.deleteButtonTitle
         ) { [weak self] (_, _, _) in
             guard let self = self else { return }
-            self.storageService.removeUserAndCredentials(for: self.users[indexPath.row])
+            self.userListModel.removeUser(self.users[indexPath.row].id)
             tableView.reloadData()
         }
         return UISwipeActionsConfiguration(actions: [removeAction])

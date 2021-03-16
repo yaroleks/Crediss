@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BA167BFA4D3B011C6A949080 /* Pods_Credis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D9CDF200A7D2D4BAB7FFCD /* Pods_Credis.framework */; };
+		C91916272600EA4900A659E3 /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91916262600EA4900A659E3 /* UserListModel.swift */; };
+		C919162D2600ECBF00A659E3 /* CredentialListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C919162C2600ECBF00A659E3 /* CredentialListModel.swift */; };
 		C9647B9425FE1FC4008C3A23 /* Credential.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9647B9325FE1FC4008C3A23 /* Credential.grpc.swift */; };
 		C97675C325FEA794009C207F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97675C225FEA794009C207F /* User.swift */; };
 		C97675CA25FEAA44009C207F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97675C925FEAA44009C207F /* StorageService.swift */; };
@@ -40,6 +42,8 @@
 		3EEB3FB0DEC6E713B58530FC /* Pods-Credis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credis.release.xcconfig"; path = "Target Support Files/Pods-Credis/Pods-Credis.release.xcconfig"; sourceTree = "<group>"; };
 		8A081D5FF682860E2FEA5653 /* Pods-Credis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credis.debug.xcconfig"; path = "Target Support Files/Pods-Credis/Pods-Credis.debug.xcconfig"; sourceTree = "<group>"; };
 		A7D9CDF200A7D2D4BAB7FFCD /* Pods_Credis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Credis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C91916262600EA4900A659E3 /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
+		C919162C2600ECBF00A659E3 /* CredentialListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialListModel.swift; sourceTree = "<group>"; };
 		C9647B9325FE1FC4008C3A23 /* Credential.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.grpc.swift; sourceTree = "<group>"; };
 		C97675C225FEA794009C207F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C97675C925FEAA44009C207F /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
@@ -82,6 +86,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C919162A2600EC9F00A659E3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				C91916262600EA4900A659E3 /* UserListModel.swift */,
+				C97675C225FEA794009C207F /* User.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		C919162F2600ECCC00A659E3 /* Credential */ = {
+			isa = PBXGroup;
+			children = (
+				C983B06325FCFB1F00162BF1 /* Credential.swift */,
+				C919162C2600ECBF00A659E3 /* CredentialListModel.swift */,
+			);
+			path = Credential;
+			sourceTree = "<group>";
+		};
 		C97675C725FEAA1D009C207F /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,8 +156,8 @@
 		C983B03825FC925700162BF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C97675C225FEA794009C207F /* User.swift */,
-				C983B06325FCFB1F00162BF1 /* Credential.swift */,
+				C919162A2600EC9F00A659E3 /* User */,
+				C919162F2600ECCC00A659E3 /* Credential */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,10 +408,12 @@
 				C983B05425FCCC2B00162BF1 /* UserTableViewCell.swift in Sources */,
 				C9B4886225FD761200206D53 /* RequestBuilder.swift in Sources */,
 				C9647B9425FE1FC4008C3A23 /* Credential.grpc.swift in Sources */,
+				C919162D2600ECBF00A659E3 /* CredentialListModel.swift in Sources */,
 				C98B2E1B26000F6500164B8F /* Color.swift in Sources */,
 				C983B06425FCFB1F00162BF1 /* Credential.swift in Sources */,
 				C9D667962600DFDA00D8A4E2 /* Storyboards.swift in Sources */,
 				C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */,
+				C91916272600EA4900A659E3 /* UserListModel.swift in Sources */,
 				C97675C325FEA794009C207F /* User.swift in Sources */,
 				C9B4885E25FD735000206D53 /* NetworkManager.swift in Sources */,
 				C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */,

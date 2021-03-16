@@ -30,14 +30,10 @@ final class CredentialsListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
-    private var storageService: StorageService = StorageManager.shared
-    private var networkService: NetworkService = NetworkManager.shared
+    // Normally it should be injected here from Coordinator
+    private let credentialListModel: CredentialListModelProtocol = CredentialListModel()
     private var credentials: [Credential] {
-        if let userId = user?.id {
-            return storageService.credentials(for: userId).sorted{ $0.id < $1.id }
-        } else {
-            return [Credential]()
-        }
+        return credentialListModel.credentials(for: user?.id)
     }
     var user: User?
     
@@ -73,22 +69,13 @@ final class CredentialsListViewController: UIViewController {
     }
     
     private func updateDatasource() {
-        // TODO: Implement Datasource class that would get credentials
-        if let userId = user?.id {
-            networkService.credentials(userId: userId, after: credentials.last?.id ?? 0) { [weak self] (credentials, error) in
-                guard let self = self else { return }
-                if let error = error {
-                    print("In the production - error should be handled: \(error)")
-                } else if let credentials = credentials {
-                    DispatchQueue.main.async {
-                        self.storageService.addCredentials(credentials, for: userId)
-                        if credentials.count > 0,
-                           let credentialTitle = credentials.first?.title {
-                            self.showBanner(Constants.Banner.bannerTitle, credentialTitle)
-                        }
-                        self.tableView.reloadData()
-                    }
+        credentialListModel.updateCredentialsDataSource(user?.id) { (credentials, error) in
+            DispatchQueue.main.async {
+                if credentials.count > 0,
+                   let credentialTitle = credentials.first?.title {
+                    self.showBanner(Constants.Banner.bannerTitle, credentialTitle)
                 }
+                self.tableView.reloadData()
             }
         }
     }
@@ -126,7 +113,7 @@ extension CredentialsListViewController: UITableViewDelegate, UITableViewDataSou
             return
         }
         controller.credential = credentials[indexPath.row]
-        storageService.updateCredentialSeenValue(credentials[indexPath.row], true)
+        credentialListModel.updateCredentialSeenValue(credentials[indexPath.row], true)
         navigationController?.pushViewController(controller, animated: true)
     }
 }
