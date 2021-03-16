@@ -8,6 +8,19 @@
 import Foundation
 
 import UIKit
+import NotificationBannerSwift
+
+fileprivate struct Constants {
+    static let cornerRadius: CGFloat = 15
+    
+    struct Banner {
+        static let bannerTitle = "New credentials were added"
+        static let backgroundColor = Color.mainThemeColor
+        static let titleColor = Color.backgroundColor
+        static let subtitleColor = Color.backgroundColor
+        static let duration = 1.5
+    }
+}
 
 final class CredentialsListViewController: UIViewController {
 
@@ -43,6 +56,13 @@ final class CredentialsListViewController: UIViewController {
             UINib(nibName: String(describing: CredentialTableViewCell.self), bundle: nil),
             forCellReuseIdentifier: String(describing: CredentialTableViewCell.self)
         )
+    private func showBanner(_ title: String, _ subtitle: String) {
+        let banner = NotificationBanner(title: title, subtitle: subtitle, style: .success)
+        banner.backgroundColor = Constants.Banner.backgroundColor
+        banner.titleLabel?.textColor = Constants.Banner.titleColor
+        banner.subtitleLabel?.textColor = Constants.Banner.subtitleColor
+        banner.duration = Constants.Banner.duration
+        banner.show(bannerPosition: .bottom)
     }
     
     private func updateDatasource() {
@@ -55,6 +75,10 @@ final class CredentialsListViewController: UIViewController {
                 } else if let credentials = credentials {
                     DispatchQueue.main.async {
                         self.storageService.addCredentials(credentials, for: userId)
+                        if credentials.count > 0,
+                           let credentialTitle = credentials.first?.title {
+                            self.showBanner(Constants.Banner.bannerTitle, credentialTitle)
+                        }
                         self.tableView.reloadData()
                     }
                 }
