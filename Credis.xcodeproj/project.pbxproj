@@ -36,6 +36,7 @@
 		C9D667962600DFDA00D8A4E2 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D667952600DFDA00D8A4E2 /* Storyboards.swift */; };
 		C9D6679A2600E06400D8A4E2 /* Credentials.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D667992600E06400D8A4E2 /* Credentials.storyboard */; };
 		C9D6679D2600E08800D8A4E2 /* SingleCredential.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D6679C2600E08800D8A4E2 /* SingleCredential.storyboard */; };
+		C9E5405526020B3E007FE390 /* UIViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E5405426020B3E007FE390 /* UIViewController+Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		C9D667952600DFDA00D8A4E2 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		C9D667992600E06400D8A4E2 /* Credentials.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Credentials.storyboard; sourceTree = "<group>"; };
 		C9D6679C2600E08800D8A4E2 /* SingleCredential.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingleCredential.storyboard; sourceTree = "<group>"; };
+		C9E5405426020B3E007FE390 /* UIViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Notification.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,8 @@
 		C919162F2600ECCC00A659E3 /* Credential */ = {
 			isa = PBXGroup;
 			children = (
-				C983B06325FCFB1F00162BF1 /* Credential.swift */,
 				C919162C2600ECBF00A659E3 /* CredentialListModel.swift */,
+				C983B06325FCFB1F00162BF1 /* Credential.swift */,
 			);
 			path = Credential;
 			sourceTree = "<group>";
@@ -233,6 +235,7 @@
 		C98B2E1926000F4A00164B8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C9E5405326020B26007FE390 /* Extensions */,
 				C98B2E1A26000F6500164B8F /* Color.swift */,
 				C9D667952600DFDA00D8A4E2 /* Storyboards.swift */,
 			);
@@ -266,6 +269,14 @@
 				C983B05125FCCC0900162BF1 /* UserTableViewCell */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		C9E5405326020B26007FE390 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C9E5405426020B3E007FE390 /* UIViewController+Notification.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CF20EEFC8BA69AFB76BCB06D /* Frameworks */ = {
@@ -415,6 +426,7 @@
 				C983B04F25FCCAA900162BF1 /* CredentialsListViewController.swift in Sources */,
 				C91916272600EA4900A659E3 /* UserListModel.swift in Sources */,
 				C97675C325FEA794009C207F /* User.swift in Sources */,
+				C9E5405526020B3E007FE390 /* UIViewController+Notification.swift in Sources */,
 				C9B4885E25FD735000206D53 /* NetworkManager.swift in Sources */,
 				C983B02725FC90C200162BF1 /* UsersListViewController.swift in Sources */,
 				C983B02325FC90C200162BF1 /* AppDelegate.swift in Sources */,

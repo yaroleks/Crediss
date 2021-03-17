@@ -54,8 +54,8 @@ final class NetworkManager: NetworkService {
             switch result {
             case .success(let response):
                 let parsedCredentials = self.parse(response)
-                if parsedCredentials.count == request.limit,
-                   let lastId = parsedCredentials.last?.id {
+                if let lastId = parsedCredentials.last?.id,
+                   parsedCredentials.count == request.limit {
                     self.credentials(userId: userId, after: lastId, completion: completion)
                 } else {
                     completion(self.parse(response), nil)

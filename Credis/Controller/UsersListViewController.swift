@@ -19,7 +19,7 @@ final class UsersListViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet private weak var tableView: UITableView!
-    // Normally it should be injected here from Coordinator
+    // In a production app - it should be injected from Coordinator
     private let userListModel: UserListModelProtocol = UserListModel()
     private var users: [User] {
         return userListModel.users()
@@ -34,7 +34,9 @@ final class UsersListViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func addPressed(_ sender: Any) {
-        userListModel.addUser()
+        userListModel.addUser { error in
+            self.showBanner(error.localizedDescription, type: .error)
+        }
         tableView.reloadData()
     }
     
@@ -77,8 +79,8 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // NOTE: If it was a production app - we should have used a Coordinator class
-        // to handle moving between screens
+        // In a production app we should have used a Coordinator pattern
+        // to separate logic for moving between screens
         let storyboard = UIStoryboard(name: Storyboards.Credentials.rawValue, bundle: nil)
         let identifier = String(describing: CredentialsListViewController.self)
         guard let controller = storyboard.instantiateViewController(withIdentifier: identifier) as? CredentialsListViewController else {
@@ -86,7 +88,6 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         controller.user = users[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
-        // Check if there is a connection to the server
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -95,7 +96,9 @@ extension UsersListViewController: UITableViewDelegate, UITableViewDataSource {
             title: Constants.deleteButtonTitle
         ) { [weak self] (_, _, _) in
             guard let self = self else { return }
-            self.userListModel.removeUser(self.users[indexPath.row].id)
+            self.userListModel.removeUser(self.users[indexPath.row].id) { error in
+                self.showBanner(error.localizedDescription, type: .error)
+            }
             tableView.reloadData()
         }
         return UISwipeActionsConfiguration(actions: [removeAction])

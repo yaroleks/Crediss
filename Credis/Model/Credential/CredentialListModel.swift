@@ -15,7 +15,7 @@ protocol CredentialListModelProtocol {
         _ userId: String?,
         _ completion: @escaping UptadeDatasourceCompletion
     )
-    func updateCredentialSeenValue(_ credential: Credential, _ seen: Bool)
+    func updateCredentialSeenValue(_ credential: Credential, _ seen: Bool, _ errorHandler: (Error) -> ())
 }
 
 final class CredentialListModel: CredentialListModelProtocol {
@@ -40,10 +40,12 @@ final class CredentialListModel: CredentialListModelProtocol {
                 guard let self = self else { return }
                 if let error = error {
                     completion([], error)
-                    print("In the production - error should be handled: \(error)")
                 } else if let credentials = credentials {
                     DispatchQueue.main.async {
-                        self.storageService.addCredentials(credentials, for: userId)
+                        self.storageService.addCredentials(credentials, userId) { error in
+                            completion([], error)
+                            return
+                        }
                         self.updateCredentials(for: userId)
                     }
                     completion(credentials, nil)
@@ -52,8 +54,8 @@ final class CredentialListModel: CredentialListModelProtocol {
         }
     }
     
-    func updateCredentialSeenValue(_ credential: Credential, _ seen: Bool) {
-        storageService.updateCredentialSeenValue(credential, seen)
+    func updateCredentialSeenValue(_ credential: Credential, _ seen: Bool, _ errorHandler: (Error) -> ()) {
+        storageService.updateCredentialSeenValue(credential, seen, errorHandler)
     }
     
     // MARK: - Private methods

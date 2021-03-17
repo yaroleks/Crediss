@@ -9,8 +9,8 @@ import Foundation
 
 protocol UserListModelProtocol {
     func users() -> [User]
-    func addUser()
-    func removeUser(_ userId: String)
+    func addUser(_ errorHandler: (Error) -> ())
+    func removeUser(_ userId: String, _ errorHandler: (Error) -> ())
 }
 
 final class UserListModel: UserListModelProtocol {
@@ -27,15 +27,15 @@ final class UserListModel: UserListModelProtocol {
         return usersList
     }
     
-    func addUser() {
+    func addUser(_ errorHandler: (Error) -> ()) {
         let user = User(uuid: UUID().uuidString)
-        storageService.addUser(user)
+        storageService.addUser(user, errorHandler)
         updateUserList()
     }
     
-    func removeUser(_ userId: String) {
+    func removeUser(_ userId: String, _ errorHandler: (Error) -> ()) {
         guard let user = usersList.first(where: { $0.id == userId }) else { return }
-        self.storageService.removeUserAndCredentials(for: user)
+        self.storageService.removeUserAndCredentials(for: user, errorHandler)
         updateUserList()
     }
     

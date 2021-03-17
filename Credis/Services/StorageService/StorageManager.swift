@@ -28,24 +28,24 @@ final class StorageManager: StorageService {
         return realm.objects(User.self).map{ $0 }
     }
     
-    func addUser(_ user: User) {
+    func addUser(_ user: User, _ errorHandler: (Error) -> ()) {
         do {
             try realm.write {
                 realm.add(user)
             }
         } catch {
-            print("Write operation cannot be finished - Handle in production app")
+            errorHandler(error)
         }
     }
     
-    func removeUserAndCredentials(for user: User) {
+    func removeUserAndCredentials(for user: User, _ errorHandler: (Error) -> ()) {
         do {
             try realm.write {
                 realm.delete(credentials(for: user.id))
                 realm.delete(user)
             }
         } catch {
-            print("Write operation cannot be finished - Handle in production app")
+            errorHandler(error)
         }
     }
     
@@ -58,7 +58,11 @@ final class StorageManager: StorageService {
         ).map{ $0 }
     }
     
-    func addCredentials(_ credentials: [Credential], for userId: String) {
+    func addCredentials(
+        _ credentials: [Credential],
+        _ userId: String,
+        _ errorHandler: (Error) -> ()
+    ) {
         credentials.forEach {
             $0.userId = userId
         }
@@ -68,17 +72,21 @@ final class StorageManager: StorageService {
                 realm.add(credentials)
             }
         } catch {
-            print("Write operation cannot be finished - Handle in production app")
+            errorHandler(error)
         }
     }
     
-    func updateCredentialSeenValue(_ credential: Credential, _ seen: Bool) {
+    func updateCredentialSeenValue(
+        _ credential: Credential,
+        _ seen: Bool,
+        _ errorHandler: (Error) -> ()
+    ) {
         do {
             try realm.write {
                 credential.alreadySeen = seen
             }
         } catch {
-            print("Write operation cannot be finished - Handle in production app")
+            errorHandler(error)
         }
     }
 }

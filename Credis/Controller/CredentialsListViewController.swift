@@ -12,16 +12,8 @@ import NotificationBannerSwift
 
 fileprivate struct Constants {
     static let tableViewCornerRadius: CGFloat = 15
-    
-    struct Banner {
-        static let bannerTitle = "New credentials were added"
-        static let backgroundColor = Color.mainThemeColor
-        static let titleColor = Color.backgroundColor
-        static let subtitleColor = Color.backgroundColor
-        static let duration = 1.5
-    }
-    
     static let cellHeight: CGFloat = 55
+    static let bannerTitle = "New credentials were added"
 }
 
 final class CredentialsListViewController: UIViewController {
@@ -30,7 +22,7 @@ final class CredentialsListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
-    // Normally it should be injected here from Coordinator
+    // In a production app - it should be injected from Coordinator
     private let credentialListModel: CredentialListModelProtocol = CredentialListModel()
     private var credentials: [Credential] {
         return credentialListModel.credentials(for: user?.id)
@@ -59,23 +51,19 @@ final class CredentialsListViewController: UIViewController {
         view.backgroundColor = Color.backgroundColor
     }
     
-    private func showBanner(_ title: String, _ subtitle: String) {
-        let banner = NotificationBanner(title: title, subtitle: subtitle, style: .success)
-        banner.backgroundColor = Constants.Banner.backgroundColor
-        banner.titleLabel?.textColor = Constants.Banner.titleColor
-        banner.subtitleLabel?.textColor = Constants.Banner.subtitleColor
-        banner.duration = Constants.Banner.duration
-        banner.show(bannerPosition: .bottom)
-    }
-    
     private func updateDatasource() {
-        credentialListModel.updateCredentialsDataSource(user?.id) { (credentials, error) in
-            DispatchQueue.main.async {
-                if credentials.count > 0,
-                   let credentialTitle = credentials.first?.title {
-                    self.showBanner(Constants.Banner.bannerTitle, credentialTitle)
+        credentialListModel.updateCredentialsDataSource(user?.id) { [weak self] (credentials, error) in
+            guard let self = self else { return }
+            if let error = error {
+                self.showBanner(error.localizedDescription, type: .error)
+            } else {
+                DispatchQueue.main.async {
+                    if credentials.count > 0,
+                       let credentialTitle = credentials.first?.title {
+                        self.showBanner(Constants.bannerTitle, credentialTitle, type: .success)
+                    }
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
         }
     }
@@ -106,14 +94,16 @@ extension CredentialsListViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // NOTE: If it was a production app - we should have used a Coordinator class
-        // to handle moving between screens
+        // In a production app we should have used a Coordinator pattern
+        // to separate logic for moving between screens
         let storyboard = UIStoryboard(name: Storyboards.SingleCredential.rawValue, bundle: nil)
         guard let controller = storyboard.instantiateViewController(withIdentifier: String(describing: SingleCredentialViewController.self)) as? SingleCredentialViewController else {
             return
         }
         controller.credential = credentials[indexPath.row]
-        credentialListModel.updateCredentialSeenValue(credentials[indexPath.row], true)
+        credentialListModel.updateCredentialSeenValue(credentials[indexPath.row], true) { error  in
+            self.showBanner(error.localizedDescription, type: .error)
+        }
         navigationController?.pushViewController(controller, animated: true)
     }
 }
