@@ -7,5 +7,5 @@
 
 * A preview video to demontstrate the working application:
 
-<video width="512" height="683" src="Credis Preview.mov"></video>
+<video src="Credis Preview.mov"></video>
 
