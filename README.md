@@ -5,7 +5,5 @@
 - The production app should have used **Coordinator** pattern responsible for moving between screen as it's one of the Best iOS devleopment practices.
 - Another Best practice is to inject dependencies with **Dependenty Injection** mechanism, so the classes may be tested more effectively with Unit tests.
 
-* A preview video to demontstrate the working application:
-
-<video src="Credis Preview.mov"></video>
+* A preview **video to demontstrate** the working application: find **Credis Preview.mov** in the main folder
 
